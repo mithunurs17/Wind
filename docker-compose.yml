@@ -1,0 +1,10 @@
+services:
+  api:
+    build: ./backend
+    environment:
+      - CORS_ORIGINS=http://localhost:8080,http://localhost:5173
+    expose: ["8000"]
+  web:
+    build: ./frontend
+    ports: ["8080:80"]
+    depends_on: [api]
